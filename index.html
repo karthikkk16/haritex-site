@@ -5,140 +5,281 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Hari Tex – Premium Woven Fabrics | Salem, India</title>
 <meta name="description" content="Hari Tex is a trusted manufacturer of premium woven fabrics from Salem, Tamil Nadu, India. 15+ years of expertise, 1,00,000+ meters/month capacity.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='12' width='100' height='100' fill='%231a2744'/><text x='50' y='68' font-size='50' font-family='serif' font-weight='bold' text-anchor='middle' fill='%23c9a84c'>HT</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --navy:#1a2744;--navy-light:#243352;--gold:#c9a84c;--gold-light:#dfc06a;
+  --navy:#1a2744;--navy-light:#243352;--navy-dark:#0f1a2e;
+  --gold:#c9a84c;--gold-light:#dfc06a;--gold-glow:rgba(201,168,76,.15);
   --cream:#faf8f4;--white:#ffffff;--gray:#6b7280;--gray-light:#e5e7eb;
   --text:#1f2937;--text-light:#4b5563;
 }
 html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;color:var(--text);background:var(--cream);line-height:1.7}
+body{font-family:'Inter',sans-serif;color:var(--text);background:var(--cream);line-height:1.7;overflow-x:hidden}
 h1,h2,h3,h4{font-family:'Playfair Display',serif;font-weight:600;line-height:1.3}
 
+/* ANIMATED WEAVE BACKGROUND */
+@keyframes weaveShift{0%{transform:translate(0,0)}100%{transform:translate(60px,60px)}}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeInLeft{from{opacity:0;transform:translateX(-30px)}to{opacity:1;transform:translateX(0)}}
+@keyframes fadeInRight{from{opacity:0;transform:translateX(30px)}to{opacity:1;transform:translateX(0)}}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+@keyframes shimmer{0%{background-position:-200% center}100%{background-position:200% center}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes countUp{from{opacity:0;transform:scale(.5)}to{opacity:1;transform:scale(1)}}
+
+/* DECORATIVE DIVIDER */
+.divider{display:flex;align-items:center;gap:1rem;margin-bottom:2rem}
+.divider::before,.divider::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.divider-icon{color:var(--gold);font-size:1.2rem}
+
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1rem 2rem;transition:all .4s}
-nav.scrolled{background:var(--navy);box-shadow:0 2px 20px rgba(0,0,0,.15)}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.2rem 2rem;transition:all .4s ease}
+nav.scrolled{background:rgba(26,39,68,.97);box-shadow:0 4px 30px rgba(0,0,0,.2);backdrop-filter:blur(12px);padding:.8rem 2rem}
 .nav-inner{max-width:1200px;margin:auto;display:flex;justify-content:space-between;align-items:center}
-.logo{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:var(--white);text-decoration:none}
+.logo{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:var(--white);text-decoration:none;letter-spacing:1px}
 .logo span{color:var(--gold)}
 .nav-links{display:flex;gap:2rem;list-style:none}
-.nav-links a{color:rgba(255,255,255,.85);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .3s;letter-spacing:.5px}
+.nav-links a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.85rem;font-weight:500;transition:all .3s;letter-spacing:.5px;text-transform:uppercase;position:relative;padding-bottom:4px}
+.nav-links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--gold);transition:width .3s}
 .nav-links a:hover{color:var(--gold)}
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
-.hamburger span{width:24px;height:2px;background:var(--white);transition:all .3s}
+.nav-links a:hover::after{width:100%}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:8px;z-index:101}
+.hamburger span{width:24px;height:2px;background:var(--white);transition:all .3s;border-radius:2px}
 .mobile-open .hamburger span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
 .mobile-open .hamburger span:nth-child(2){opacity:0}
 .mobile-open .hamburger span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
 
 /* HERO */
-.hero{min-height:100vh;background:linear-gradient(135deg,var(--navy) 0%,#0f1a2e 100%);display:flex;align-items:center;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0 L60 30 L30 60 L0 30Z' fill='none' stroke='rgba(201,168,76,0.06)' stroke-width='1'/%3E%3C/svg%3E")}
-.hero-content{max-width:1200px;margin:auto;padding:8rem 2rem 4rem;position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
-.hero-text h1{font-size:3.5rem;color:var(--white);margin-bottom:1.5rem}
-.hero-text h1 span{color:var(--gold);display:block}
-.hero-text p{color:rgba(255,255,255,.7);font-size:1.1rem;margin-bottom:2rem;max-width:500px}
+.hero{min-height:100vh;background:linear-gradient(135deg,var(--navy) 0%,var(--navy-dark) 50%,#0a1220 100%);display:flex;align-items:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 30 L30 0 L60 30 L30 60Z' fill='none' stroke='rgba(201,168,76,0.07)' stroke-width='.5'/%3E%3Cline x1='0' y1='0' x2='60' y2='60' stroke='rgba(201,168,76,0.03)' stroke-width='.5'/%3E%3Cline x1='60' y1='0' x2='0' y2='60' stroke='rgba(201,168,76,0.03)' stroke-width='.5'/%3E%3C/svg%3E");animation:weaveShift 20s linear infinite}
+.hero::after{content:'';position:absolute;top:-50%;right:-20%;width:600px;height:600px;background:radial-gradient(circle,rgba(201,168,76,.08) 0%,transparent 70%);border-radius:50%;pointer-events:none}
+.hero-content{max-width:1200px;margin:auto;padding:8rem 2rem 4rem;position:relative;z-index:1;display:grid;grid-template-columns:1.1fr .9fr;gap:4rem;align-items:center}
+.hero-text{animation:fadeInLeft 1s ease .2s both}
+.hero-text h1{font-size:3.8rem;color:var(--white);margin-bottom:1.5rem;letter-spacing:-.5px}
+.hero-text h1 span{color:var(--gold);display:block;background:linear-gradient(90deg,var(--gold),var(--gold-light),var(--gold));background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:shimmer 4s linear infinite}
+.hero-text p{color:rgba(255,255,255,.65);font-size:1.1rem;margin-bottom:2.5rem;max-width:520px;line-height:1.8}
 .hero-cta{display:inline-flex;gap:1rem;flex-wrap:wrap}
-.btn{padding:.85rem 2rem;border-radius:4px;font-weight:600;font-size:.9rem;text-decoration:none;transition:all .3s;letter-spacing:.5px;cursor:pointer;border:none}
-.btn-gold{background:var(--gold);color:var(--navy)}
-.btn-gold:hover{background:var(--gold-light);transform:translateY(-2px)}
-.btn-outline{border:2px solid rgba(255,255,255,.3);color:var(--white);background:transparent}
-.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
-.hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
-.stat-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:2rem;text-align:center;backdrop-filter:blur(10px)}
-.stat-card .number{font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:700;color:var(--gold);display:block}
-.stat-card .label{color:rgba(255,255,255,.6);font-size:.85rem;margin-top:.5rem;display:block}
+.btn{padding:.9rem 2.2rem;border-radius:6px;font-weight:600;font-size:.9rem;text-decoration:none;transition:all .3s;letter-spacing:.5px;cursor:pointer;border:none;position:relative;overflow:hidden}
+.btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--navy);box-shadow:0 4px 20px rgba(201,168,76,.3)}
+.btn-gold:hover{transform:translateY(-3px);box-shadow:0 8px 30px rgba(201,168,76,.4)}
+.btn-outline{border:2px solid rgba(255,255,255,.25);color:var(--white);background:transparent;backdrop-filter:blur(4px)}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold);background:rgba(201,168,76,.05)}
+.hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;animation:fadeInRight 1s ease .4s both}
+.stat-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:2rem 1.2rem;text-align:center;backdrop-filter:blur(10px);transition:all .4s;position:relative;overflow:hidden}
+.stat-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(201,168,76,.05),transparent);opacity:0;transition:opacity .4s}
+.stat-card:hover{border-color:rgba(201,168,76,.3);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.2)}
+.stat-card:hover::before{opacity:1}
+.stat-card .number{font-family:'Playfair Display',serif;font-size:clamp(1.4rem, 3.5vw, 2.8rem);font-weight:700;color:var(--gold);display:block;position:relative;white-space:nowrap;padding:0 .25rem}
+.stat-card .label{color:rgba(255,255,255,.5);font-size:.8rem;margin-top:.5rem;display:block;text-transform:uppercase;letter-spacing:1px;font-weight:500}
 
 /* SECTIONS */
-section{padding:6rem 2rem}
+section{padding:7rem 2rem}
 .section-inner{max-width:1100px;margin:auto}
-.section-label{text-transform:uppercase;letter-spacing:3px;font-size:.75rem;font-weight:600;color:var(--gold);margin-bottom:.75rem}
-.section-title{font-size:2.4rem;color:var(--navy);margin-bottom:1rem}
-.section-subtitle{color:var(--text-light);font-size:1.05rem;max-width:600px;margin-bottom:3rem}
+.section-label{text-transform:uppercase;letter-spacing:4px;font-size:.7rem;font-weight:600;color:var(--gold);margin-bottom:.75rem;display:inline-block}
+.section-title{font-size:2.6rem;color:var(--navy);margin-bottom:1rem;position:relative}
+.section-subtitle{color:var(--text-light);font-size:1.05rem;max-width:600px;margin-bottom:3rem;line-height:1.8}
 
 /* ABOUT */
 .about{background:var(--white)}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
-.about-text p{color:var(--text-light);margin-bottom:1.5rem}
+.about-text p{color:var(--text-light);margin-bottom:1.5rem;line-height:1.9}
 .about-visual{position:relative}
-.about-card{background:linear-gradient(135deg,var(--navy),var(--navy-light));border-radius:16px;padding:3rem;color:var(--white)}
-.about-card .timeline{display:flex;flex-direction:column;gap:1.5rem}
-.timeline-item{display:flex;gap:1rem;align-items:flex-start}
-.timeline-dot{width:12px;height:12px;border-radius:50%;background:var(--gold);margin-top:6px;flex-shrink:0}
-.timeline-content .year{font-weight:600;color:var(--gold);font-size:.85rem}
-.timeline-content .desc{color:rgba(255,255,255,.7);font-size:.9rem}
+.about-card{background:linear-gradient(135deg,var(--navy),var(--navy-light));border-radius:20px;padding:2.5rem;color:var(--white);position:relative;overflow:hidden;box-shadow:0 20px 60px rgba(26,39,68,.3)}
+.about-card::before{content:'';position:absolute;top:-50%;right:-50%;width:200px;height:200px;background:radial-gradient(circle,rgba(201,168,76,.1),transparent);border-radius:50%}
+.about-card .timeline{display:flex;flex-direction:column;gap:1.5rem;position:relative}
+.about-card .timeline::before{content:'';position:absolute;left:5px;top:6px;bottom:6px;width:2px;background:linear-gradient(to bottom,var(--gold),rgba(201,168,76,.2))}
+.timeline-item{display:flex;gap:1.2rem;align-items:flex-start;position:relative}
+.timeline-dot{width:12px;height:12px;border-radius:50%;background:var(--gold);margin-top:6px;flex-shrink:0;box-shadow:0 0 10px rgba(201,168,76,.4);position:relative;z-index:1}
+.timeline-content .year{font-weight:600;color:var(--gold);font-size:.85rem;letter-spacing:1px}
+.timeline-content .desc{color:rgba(255,255,255,.65);font-size:.9rem;margin-top:.2rem}
 
 /* INFRASTRUCTURE */
 .infra{background:var(--cream)}
 .infra-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
-.infra-card{background:var(--white);border-radius:12px;padding:2rem;border:1px solid var(--gray-light);transition:all .3s}
-.infra-card:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(0,0,0,.08);border-color:var(--gold)}
-.infra-icon{width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,var(--navy),var(--navy-light));display:flex;align-items:center;justify-content:center;margin-bottom:1rem;font-size:1.3rem;color:var(--gold)}
+.infra-card{background:var(--white);border-radius:14px;padding:2rem;border:1px solid var(--gray-light);transition:all .4s;position:relative;overflow:hidden}
+.infra-card::before{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light));transform:scaleX(0);transition:transform .4s;transform-origin:left}
+.infra-card:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(0,0,0,.08);border-color:var(--gold)}
+.infra-card:hover::before{transform:scaleX(1)}
+.infra-icon{width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,var(--navy),var(--navy-light));display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;font-size:1.4rem;color:var(--gold);box-shadow:0 4px 12px rgba(26,39,68,.2)}
 .infra-card h4{font-size:1.05rem;color:var(--navy);margin-bottom:.5rem}
-.infra-card p{color:var(--text-light);font-size:.9rem}
+.infra-card p{color:var(--text-light);font-size:.88rem;line-height:1.7}
 
 /* WORKFLOW */
-.workflow{background:var(--navy);color:var(--white)}
+.workflow{background:var(--navy);color:var(--white);position:relative;overflow:hidden}
+.workflow::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 30 L30 0 L60 30 L30 60Z' fill='none' stroke='rgba(201,168,76,0.04)' stroke-width='.5'/%3E%3C/svg%3E")}
+.workflow .section-inner{position:relative;z-index:1}
 .workflow .section-title{color:var(--white)}
-.workflow .section-subtitle{color:rgba(255,255,255,.6)}
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
-.step{position:relative;padding:2rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;transition:all .3s}
-.step:hover{background:rgba(255,255,255,.08);border-color:var(--gold)}
-.step-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--gold);opacity:.5;margin-bottom:.5rem}
+.workflow .section-subtitle{color:rgba(255,255,255,.55)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.step{position:relative;padding:2rem;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:14px;transition:all .4s}
+.step:hover{background:rgba(255,255,255,.07);border-color:rgba(201,168,76,.4);box-shadow:0 8px 30px rgba(0,0,0,.2)}
+.step-num{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;background:linear-gradient(135deg,var(--gold),rgba(201,168,76,.3));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:.5rem;display:inline-block}
 .step h4{font-size:1rem;margin-bottom:.5rem}
-.step p{color:rgba(255,255,255,.5);font-size:.85rem}
+.step p{color:rgba(255,255,255,.45);font-size:.85rem;line-height:1.7}
+.step-connector{display:none}
 
 /* PRODUCTS */
 .products{background:var(--white)}
 .product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
-.product-tag{background:var(--cream);border:1px solid var(--gray-light);border-radius:8px;padding:1rem 1.25rem;font-size:.9rem;font-weight:500;color:var(--navy);transition:all .3s;text-align:center}
-.product-tag:hover{border-color:var(--gold);background:var(--white);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.06)}
+.product-tag{background:var(--cream);border:1px solid var(--gray-light);border-radius:10px;padding:1.1rem 1.25rem;font-size:.88rem;font-weight:500;color:var(--navy);transition:all .4s;text-align:center;position:relative;overflow:hidden}
+.product-tag::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--gold-glow),transparent);opacity:0;transition:opacity .4s}
+.product-tag:hover{border-color:var(--gold);background:var(--white);transform:translateY(-3px);box-shadow:0 8px 20px rgba(0,0,0,.06);color:var(--gold)}
+.product-tag:hover::before{opacity:1}
 
 /* WHY US */
 .why{background:var(--cream)}
 .why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
-.why-card{display:flex;gap:1rem;align-items:flex-start;padding:1.5rem;background:var(--white);border-radius:10px;border:1px solid var(--gray-light)}
-.why-check{width:28px;height:28px;border-radius:50%;background:var(--gold);color:var(--navy);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.8rem;flex-shrink:0;margin-top:2px}
-.why-card h4{font-size:.95rem;color:var(--navy);margin-bottom:.25rem}
-.why-card p{font-size:.85rem;color:var(--text-light)}
+.why-card{display:flex;gap:1.2rem;align-items:flex-start;padding:1.8rem;background:var(--white);border-radius:12px;border:1px solid var(--gray-light);transition:all .4s}
+.why-card:hover{border-color:var(--gold);box-shadow:0 8px 25px rgba(0,0,0,.06);transform:translateY(-3px)}
+.why-check{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--navy);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;flex-shrink:0;margin-top:2px;box-shadow:0 3px 10px rgba(201,168,76,.3)}
+.why-card h4{font-size:.95rem;color:var(--navy);margin-bottom:.3rem}
+.why-card p{font-size:.85rem;color:var(--text-light);line-height:1.7}
 
 /* CONTACT */
-.contact{background:var(--navy);color:var(--white)}
+.contact{background:var(--navy);color:var(--white);position:relative;overflow:hidden}
+.contact::before{content:'';position:absolute;bottom:-30%;left:-10%;width:500px;height:500px;background:radial-gradient(circle,rgba(201,168,76,.06),transparent);border-radius:50%}
+.contact .section-inner{position:relative;z-index:1}
 .contact .section-title{color:var(--white)}
-.contact .section-subtitle{color:rgba(255,255,255,.6)}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
-.contact-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:2.5rem}
+.contact .section-subtitle{color:rgba(255,255,255,.55)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+.contact-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:2.5rem;transition:all .4s}
+.contact-card:hover{border-color:rgba(201,168,76,.3);background:rgba(255,255,255,.06);box-shadow:0 8px 30px rgba(0,0,0,.15)}
 .contact-card h3{font-size:1.2rem;margin-bottom:.25rem}
-.contact-card .role{color:var(--gold);font-size:.85rem;margin-bottom:1.5rem;display:block}
-.contact-info{display:flex;flex-direction:column;gap:.75rem}
-.contact-info a{color:rgba(255,255,255,.7);text-decoration:none;font-size:.9rem;display:flex;align-items:center;gap:.75rem;transition:color .3s}
-.contact-info a:hover{color:var(--gold)}
-.address-block{margin-top:3rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,.1)}
-.address-block h4{color:var(--gold);font-size:.9rem;margin-bottom:.75rem;text-transform:uppercase;letter-spacing:2px}
-.address-block p{color:rgba(255,255,255,.6);font-size:.9rem;line-height:1.8}
+.contact-card .role{color:var(--gold);font-size:.85rem;margin-bottom:1.5rem;display:block;letter-spacing:.5px}
+.contact-info{display:flex;flex-direction:column;gap:.85rem}
+.contact-info a{color:rgba(255,255,255,.7);text-decoration:none;font-size:.9rem;display:flex;align-items:center;gap:.75rem;transition:all .3s;padding:.5rem .75rem;border-radius:8px}
+.contact-info a:hover{color:var(--gold);background:rgba(201,168,76,.08)}
+.address-block{margin-top:3rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,.08)}
+.address-block h4{color:var(--gold);font-size:.85rem;margin-bottom:.75rem;text-transform:uppercase;letter-spacing:3px}
+.address-block p{color:rgba(255,255,255,.55);font-size:.9rem;line-height:1.9}
+
+/* WHATSAPP BUTTON */
+.whatsapp-float{position:fixed;bottom:2rem;right:2rem;z-index:99;width:60px;height:60px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.4);transition:all .3s;text-decoration:none;animation:float 3s ease-in-out infinite}
+.whatsapp-float:hover{transform:scale(1.1);box-shadow:0 6px 30px rgba(37,211,102,.5)}
+.whatsapp-float svg{width:32px;height:32px;fill:white}
+.whatsapp-tooltip{position:absolute;right:72px;top:50%;transform:translateY(-50%);background:var(--white);color:var(--text);padding:.6rem 1rem;border-radius:8px;font-size:.8rem;font-weight:500;white-space:nowrap;box-shadow:0 4px 15px rgba(0,0,0,.1);opacity:0;pointer-events:none;transition:opacity .3s}
+.whatsapp-float:hover .whatsapp-tooltip{opacity:1}
 
 /* FOOTER */
-footer{background:#0f1a2e;padding:2rem;text-align:center}
-footer p{color:rgba(255,255,255,.4);font-size:.8rem}
-footer .tagline{font-family:'Playfair Display',serif;color:var(--gold);font-size:1rem;margin-bottom:.5rem;font-style:italic}
+footer{background:var(--navy-dark);padding:3rem 2rem 2rem;text-align:center;position:relative}
+footer::before{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,.3),transparent)}
+footer p{color:rgba(255,255,255,.35);font-size:.8rem}
+footer .tagline{font-family:'Playfair Display',serif;color:var(--gold);font-size:1.1rem;margin-bottom:.75rem;font-style:italic;letter-spacing:.5px}
 
-/* MOBILE */
+/* SCROLL REVEAL */
+.reveal{opacity:0;transform:translateY(30px);transition:all .7s cubic-bezier(.4,0,.2,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-left{opacity:0;transform:translateX(-40px);transition:all .7s cubic-bezier(.4,0,.2,1)}
+.reveal-left.visible{opacity:1;transform:translateX(0)}
+.reveal-right{opacity:0;transform:translateX(40px);transition:all .7s cubic-bezier(.4,0,.2,1)}
+.reveal-right.visible{opacity:1;transform:translateX(0)}
+
+/* STAGGERED CHILDREN */
+.stagger-children .reveal:nth-child(1){transition-delay:.05s}
+.stagger-children .reveal:nth-child(2){transition-delay:.1s}
+.stagger-children .reveal:nth-child(3){transition-delay:.15s}
+.stagger-children .reveal:nth-child(4){transition-delay:.2s}
+.stagger-children .reveal:nth-child(5){transition-delay:.25s}
+.stagger-children .reveal:nth-child(6){transition-delay:.3s}
+.stagger-children .reveal:nth-child(7){transition-delay:.35s}
+.stagger-children .reveal:nth-child(8){transition-delay:.4s}
+.stagger-children .reveal:nth-child(9){transition-delay:.45s}
+.stagger-children .reveal:nth-child(10){transition-delay:.5s}
+.stagger-children .reveal:nth-child(11){transition-delay:.55s}
+.stagger-children .reveal:nth-child(12){transition-delay:.6s}
+.stagger-children .reveal:nth-child(13){transition-delay:.65s}
+.stagger-children .reveal:nth-child(14){transition-delay:.7s}
+.stagger-children .reveal:nth-child(15){transition-delay:.75s}
+.stagger-children .reveal:nth-child(16){transition-delay:.8s}
+.stagger-children .reveal:nth-child(17){transition-delay:.85s}
+.stagger-children .reveal:nth-child(18){transition-delay:.9s}
+
+/* ===== RESPONSIVE ===== */
+
+/* Large desktop */
+@media(min-width:1400px){
+  .hero-text h1{font-size:4.2rem}
+  .section-title{font-size:2.8rem}
+  .stat-card .number{font-size:3.2rem}
+}
+
+/* Tablet landscape */
+@media(max-width:1024px){
+  .hero-content{grid-template-columns:1fr;gap:3rem;padding:7rem 2rem 4rem}
+  .hero-text h1{font-size:3rem}
+  .hero-stats{grid-template-columns:repeat(4,1fr);gap:1rem}
+  .stat-card{padding:1.5rem}
+  .stat-card .number{font-size:2rem}
+  .about-grid{grid-template-columns:1fr;gap:2.5rem}
+  .infra-grid{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:repeat(2,1fr)}
+  .product-grid{grid-template-columns:repeat(3,1fr)}
+  .section-title{font-size:2.2rem}
+  section{padding:5rem 2rem}
+}
+
+/* Tablet portrait */
 @media(max-width:768px){
   .hamburger{display:flex}
-  .nav-links{position:fixed;top:0;left:0;right:0;bottom:0;background:var(--navy);flex-direction:column;align-items:center;justify-content:center;gap:2rem;transform:translateX(100%);transition:transform .4s}
+  .nav-links{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(26,39,68,.98);backdrop-filter:blur(20px);flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;transform:translateX(100%);transition:transform .4s cubic-bezier(.4,0,.2,1)}
   .mobile-open .nav-links{transform:translateX(0)}
-  .hero-content{grid-template-columns:1fr;padding:7rem 1.5rem 3rem;gap:2.5rem}
-  .hero-text h1{font-size:2.4rem}
-  .hero-stats{grid-template-columns:1fr 1fr}
+  .nav-links a{font-size:1.1rem}
+  .hero-content{padding:6.5rem 1.5rem 3rem;gap:2.5rem}
+  .hero-text h1{font-size:2.5rem}
+  .hero-text p{font-size:1rem}
+  .hero-stats{grid-template-columns:1fr 1fr;gap:1rem}
+  .stat-card .number{font-size:1.8rem}
   .about-grid{grid-template-columns:1fr}
-  .infra-grid{grid-template-columns:1fr}
-  .steps{grid-template-columns:1fr}
-  .product-grid{grid-template-columns:repeat(2,1fr)}
+  .about-card{padding:2rem}
+  .infra-grid{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .product-grid{grid-template-columns:repeat(3,1fr)}
   .why-grid{grid-template-columns:1fr}
   .contact-grid{grid-template-columns:1fr}
-  .section-title{font-size:1.8rem}
+  .section-title{font-size:2rem}
+  section{padding:4rem 1.5rem}
+  .btn{padding:.8rem 1.8rem;font-size:.85rem}
+  .whatsapp-float{width:54px;height:54px;bottom:1.5rem;right:1.5rem}
+  .whatsapp-float svg{width:28px;height:28px}
+  .whatsapp-tooltip{display:none}
+}
+
+/* Small phone */
+@media(max-width:480px){
+  nav{padding:.8rem 1rem}
+  nav.scrolled{padding:.6rem 1rem}
+  .logo{font-size:1.3rem}
+  .hero-content{padding:5.5rem 1rem 2.5rem}
+  .hero-text h1{font-size:2rem;margin-bottom:1rem}
+  .hero-text p{font-size:.9rem;margin-bottom:1.5rem}
+  .hero-stats{grid-template-columns:1fr 1fr;gap:.75rem}
+  .stat-card{padding:1.2rem .8rem;border-radius:10px}
+  .stat-card .number{font-size:1.8rem}
+  .stat-card .label{font-size:.7rem}
+  .infra-grid{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr}
+  .product-grid{grid-template-columns:repeat(2,1fr);gap:.75rem}
+  .product-tag{padding:.85rem .75rem;font-size:.82rem}
+  .why-card{padding:1.2rem}
+  .contact-card{padding:1.8rem}
+  .section-title{font-size:1.7rem}
+  .section-label{font-size:.65rem;letter-spacing:3px}
+  section{padding:3.5rem 1rem}
+  .about-card{padding:1.5rem}
+  .timeline-content .desc{font-size:.82rem}
+  .btn{width:100%;text-align:center;padding:.85rem 1.5rem}
+  .hero-cta{flex-direction:column;width:100%}
+}
+
+/* Very small phone */
+@media(max-width:360px){
+  .hero-text h1{font-size:1.75rem}
+  .stat-card .number{font-size:1.5rem}
+  .section-title{font-size:1.5rem}
+  .product-grid{grid-template-columns:1fr 1fr}
 }
 </style>
 </head>
@@ -174,10 +315,10 @@ footer .tagline{font-family:'Playfair Display',serif;color:var(--gold);font-size
       </div>
     </div>
     <div class="hero-stats">
-      <div class="stat-card"><span class="number">15+</span><span class="label">Years of Experience</span></div>
-      <div class="stat-card"><span class="number">200</span><span class="label">Power, Rapier &amp; Air-Jet Looms</span></div>
-      <div class="stat-card"><span class="number">1L+</span><span class="label">Meters / Month Capacity</span></div>
-      <div class="stat-card"><span class="number">6+5</span><span class="label">Dyeing &amp; Processing Units</span></div>
+      <div class="stat-card"><span class="number" data-target="15" data-suffix="+">0</span><span class="label">Years of Experience</span></div>
+      <div class="stat-card"><span class="number" data-target="200" data-suffix="">0</span><span class="label">Power, Rapier &amp; Air-Jet Looms</span></div>
+      <div class="stat-card"><span class="number" data-target="100000" data-suffix="+" data-format="indian">0</span><span class="label">Meters / Month Capacity</span></div>
+      <div class="stat-card"><span class="number" data-target="11" data-suffix="">0</span><span class="label">Dyeing &amp; Processing Units</span></div>
     </div>
   </div>
 </section>
@@ -186,13 +327,14 @@ footer .tagline{font-family:'Playfair Display',serif;color:var(--gold);font-size
 <section class="about" id="about">
   <div class="section-inner">
     <div class="about-grid">
-      <div class="about-text">
+      <div class="about-text reveal-left">
         <div class="section-label">Our Story</div>
         <h2 class="section-title">Built on Trust, Driven by Quality</h2>
+        <div class="divider"><span class="divider-icon">&#9830;</span></div>
         <p>Founded in 2009 as Hari Fashions, the company evolved into <strong>Hari Tex</strong> in 2022, strengthening its identity as a quality-driven woven fabric manufacturer headquartered in Salem, Tamil Nadu.</p>
         <p>Over the years, Hari Tex has earned a solid reputation for product integrity, execution reliability, and buyer trust. We combine traditional textile craftsmanship with modern weaving technology to serve global markets.</p>
       </div>
-      <div class="about-visual">
+      <div class="about-visual reveal-right">
         <div class="about-card">
           <div class="timeline">
             <div class="timeline-item">
@@ -209,7 +351,7 @@ footer .tagline{font-family:'Playfair Display',serif;color:var(--gold);font-size
             </div>
             <div class="timeline-item">
               <div class="timeline-dot"></div>
-              <div class="timeline-content"><div class="year">Today</div><div class="desc">1,00,000+ meters/month capacity with 200 looms &amp; 11 processing facilities</div></div>
+              <div class="timeline-content"><div class="year">Today</div><div class="desc">1,00,000+ meters/month with 200 looms &amp; 11 processing facilities</div></div>
             </div>
           </div>
         </div>
@@ -221,36 +363,37 @@ footer .tagline{font-family:'Playfair Display',serif;color:var(--gold);font-size
 <!-- INFRASTRUCTURE -->
 <section class="infra" id="infrastructure">
   <div class="section-inner">
-    <div class="section-label">Expertise &amp; Infrastructure</div>
-    <h2 class="section-title">Built for Volume, Flexibility &amp; Consistency</h2>
-    <p class="section-subtitle">Hari Tex balances innovation with craftsmanship, operating through strong contract-based infrastructure.</p>
-    <div class="infra-grid">
-      <div class="infra-card">
+    <div class="section-label reveal">Expertise &amp; Infrastructure</div>
+    <h2 class="section-title reveal">Built for Volume, Flexibility &amp; Consistency</h2>
+    <div class="divider reveal"><span class="divider-icon">&#9830;</span></div>
+    <p class="section-subtitle reveal">Hari Tex balances innovation with craftsmanship, operating through strong contract-based infrastructure.</p>
+    <div class="infra-grid stagger-children">
+      <div class="infra-card reveal">
         <div class="infra-icon">&#9881;</div>
         <h4>200 Advanced Looms</h4>
         <p>Power, Rapier &amp; Air-Jet looms for diverse weaving requirements</p>
       </div>
-      <div class="infra-card">
+      <div class="infra-card reveal">
         <div class="infra-icon">&#9874;</div>
         <h4>Custom Engineering</h4>
         <p>Woven fabrics custom-engineered as per exact buyer specifications</p>
       </div>
-      <div class="infra-card">
+      <div class="infra-card reveal">
         <div class="infra-icon">&#10026;</div>
         <h4>Premium Yarn Sourcing</h4>
         <p>Sourced from reputed suppliers ensuring consistent fibre quality</p>
       </div>
-      <div class="infra-card">
+      <div class="infra-card reveal">
         <div class="infra-icon">&#9752;</div>
         <h4>6 Dyeing Units</h4>
         <p>Specialized facilities ensuring shade accuracy across bulk production</p>
       </div>
-      <div class="infra-card">
+      <div class="infra-card reveal">
         <div class="infra-icon">&#9878;</div>
         <h4>5 Processing Facilities</h4>
         <p>Complete finishing solutions from shrinkage control to softening</p>
       </div>
-      <div class="infra-card">
+      <div class="infra-card reveal">
         <div class="infra-icon">&#9650;</div>
         <h4>Scalable Capacity</h4>
         <p>1,00,000+ meters/month — built to scale with your demand</p>
@@ -262,16 +405,17 @@ footer .tagline{font-family:'Playfair Display',serif;color:var(--gold);font-size
 <!-- WORKFLOW -->
 <section class="workflow" id="workflow">
   <div class="section-inner">
-    <div class="section-label">Our Process</div>
-    <h2 class="section-title">Structured Workflow, Uncompromised Quality</h2>
-    <p class="section-subtitle">Multi-stage quality checks enforced across every production phase for global compliance.</p>
-    <div class="steps">
-      <div class="step"><div class="step-num">01</div><h4>Yarn Procurement</h4><p>Sourced as per buyer requirements from trusted suppliers</p></div>
-      <div class="step"><div class="step-num">02</div><h4>Controlled Dyeing</h4><p>Precision dyeing for shade accuracy and colorfastness</p></div>
-      <div class="step"><div class="step-num">03</div><h4>Warping &amp; Weaving</h4><p>Executed on advanced Power, Rapier &amp; Air-Jet looms</p></div>
-      <div class="step"><div class="step-num">04</div><h4>Processing &amp; Finishing</h4><p>Complete finishing solutions across 5 specialized facilities</p></div>
-      <div class="step"><div class="step-num">05</div><h4>4-Point Inspection</h4><p>Industry-standard quality inspection system for defect analysis</p></div>
-      <div class="step"><div class="step-num">06</div><h4>On-Time Dispatch</h4><p>Reliable logistics ensuring your fabric arrives on schedule</p></div>
+    <div class="section-label reveal">Our Process</div>
+    <h2 class="section-title reveal">Structured Workflow, Uncompromised Quality</h2>
+    <div class="divider reveal"><span class="divider-icon">&#9830;</span></div>
+    <p class="section-subtitle reveal">Multi-stage quality checks enforced across every production phase for global compliance.</p>
+    <div class="steps stagger-children">
+      <div class="step reveal"><div class="step-num">01</div><h4>Yarn Procurement</h4><p>Sourced as per buyer requirements from trusted suppliers</p></div>
+      <div class="step reveal"><div class="step-num">02</div><h4>Controlled Dyeing</h4><p>Precision dyeing for shade accuracy and colorfastness</p></div>
+      <div class="step reveal"><div class="step-num">03</div><h4>Warping &amp; Weaving</h4><p>Executed on advanced Power, Rapier &amp; Air-Jet looms</p></div>
+      <div class="step reveal"><div class="step-num">04</div><h4>Processing &amp; Finishing</h4><p>Complete finishing solutions across 5 specialized facilities</p></div>
+      <div class="step reveal"><div class="step-num">05</div><h4>4-Point Inspection</h4><p>Industry-standard quality inspection system for defect analysis</p></div>
+      <div class="step reveal"><div class="step-num">06</div><h4>On-Time Dispatch</h4><p>Reliable logistics ensuring your fabric arrives on schedule</p></div>
     </div>
   </div>
 </section>
@@ -279,28 +423,29 @@ footer .tagline{font-family:'Playfair Display',serif;color:var(--gold);font-size
 <!-- PRODUCTS -->
 <section class="products" id="products">
   <div class="section-inner">
-    <div class="section-label">Product Range</div>
-    <h2 class="section-title">Extensive Woven Fabric Collection</h2>
-    <p class="section-subtitle">Custom developments available on request.</p>
-    <div class="product-grid">
-      <div class="product-tag">Polyester &amp; Blends</div>
-      <div class="product-tag">Cotton &amp; Blends</div>
-      <div class="product-tag">Viscose &amp; Blends</div>
-      <div class="product-tag">Linen &amp; Blends</div>
-      <div class="product-tag">Spandex</div>
-      <div class="product-tag">Fancy Yarns</div>
-      <div class="product-tag">Melanges</div>
-      <div class="product-tag">Grindles</div>
-      <div class="product-tag">Double Gauze</div>
-      <div class="product-tag">Flannels</div>
-      <div class="product-tag">Voiles</div>
-      <div class="product-tag">Slubs</div>
-      <div class="product-tag">Patchwork Fabrics</div>
-      <div class="product-tag">Indigo Fabrics</div>
-      <div class="product-tag">Chambray</div>
-      <div class="product-tag">Denim Checks</div>
-      <div class="product-tag">Stripes</div>
-      <div class="product-tag">Custom Development</div>
+    <div class="section-label reveal">Product Range</div>
+    <h2 class="section-title reveal">Extensive Woven Fabric Collection</h2>
+    <div class="divider reveal"><span class="divider-icon">&#9830;</span></div>
+    <p class="section-subtitle reveal">Custom developments available on request.</p>
+    <div class="product-grid stagger-children">
+      <div class="product-tag reveal">Polyester &amp; Blends</div>
+      <div class="product-tag reveal">Cotton &amp; Blends</div>
+      <div class="product-tag reveal">Viscose &amp; Blends</div>
+      <div class="product-tag reveal">Linen &amp; Blends</div>
+      <div class="product-tag reveal">Spandex</div>
+      <div class="product-tag reveal">Fancy Yarns</div>
+      <div class="product-tag reveal">Melanges</div>
+      <div class="product-tag reveal">Grindles</div>
+      <div class="product-tag reveal">Double Gauze</div>
+      <div class="product-tag reveal">Flannels</div>
+      <div class="product-tag reveal">Voiles</div>
+      <div class="product-tag reveal">Slubs</div>
+      <div class="product-tag reveal">Patchwork Fabrics</div>
+      <div class="product-tag reveal">Indigo Fabrics</div>
+      <div class="product-tag reveal">Chambray</div>
+      <div class="product-tag reveal">Denim Checks</div>
+      <div class="product-tag reveal">Stripes</div>
+      <div class="product-tag reveal">Custom Development</div>
     </div>
   </div>
 </section>
@@ -308,31 +453,31 @@ footer .tagline{font-family:'Playfair Display',serif;color:var(--gold);font-size
 <!-- WHY US -->
 <section class="why" id="why">
   <div class="section-inner">
-    <div class="section-label">Why Hari Tex</div>
-    <h2 class="section-title">We Don't Overpromise. We Deliver.</h2>
-    <p class="section-subtitle"></p>
-    <div class="why-grid">
-      <div class="why-card">
+    <div class="section-label reveal">Why Hari Tex</div>
+    <h2 class="section-title reveal">We Don't Overpromise. We Deliver.</h2>
+    <div class="divider reveal"><span class="divider-icon">&#9830;</span></div>
+    <div class="why-grid stagger-children">
+      <div class="why-card reveal">
         <div class="why-check">&#10003;</div>
         <div><h4>Customization</h4><p>Fabrics engineered to exact buyer specifications — yarn, weave, finish, everything tailored.</p></div>
       </div>
-      <div class="why-card">
+      <div class="why-card reveal">
         <div class="why-check">&#10003;</div>
         <div><h4>Quality Assurance</h4><p>Strict multi-stage inspections including 4-Point System at every production phase.</p></div>
       </div>
-      <div class="why-card">
+      <div class="why-card reveal">
         <div class="why-check">&#10003;</div>
         <div><h4>On-Time Delivery</h4><p>Structured workflow and reliable logistics ensure your fabric arrives on schedule.</p></div>
       </div>
-      <div class="why-card">
+      <div class="why-card reveal">
         <div class="why-check">&#10003;</div>
         <div><h4>Scalable Production</h4><p>1,00,000+ meters/month with 200 looms — built to grow with your demand.</p></div>
       </div>
-      <div class="why-card">
+      <div class="why-card reveal">
         <div class="why-check">&#10003;</div>
         <div><h4>Sustainable Practices</h4><p>Commitment to responsible manufacturing and environmentally conscious production.</p></div>
       </div>
-      <div class="why-card">
+      <div class="why-card reveal">
         <div class="why-check">&#10003;</div>
         <div><h4>15+ Years Trust</h4><p>A proven track record of product integrity, execution reliability, and buyer satisfaction.</p></div>
       </div>
@@ -343,11 +488,12 @@ footer .tagline{font-family:'Playfair Display',serif;color:var(--gold);font-size
 <!-- CONTACT -->
 <section class="contact" id="contact">
   <div class="section-inner">
-    <div class="section-label">Get in Touch</div>
-    <h2 class="section-title">Let's Work Together</h2>
-    <p class="section-subtitle">Reach out to discuss your fabric requirements.</p>
-    <div class="contact-grid">
-      <div class="contact-card">
+    <div class="section-label reveal">Get in Touch</div>
+    <h2 class="section-title reveal">Let's Work Together</h2>
+    <div class="divider reveal"><span class="divider-icon">&#9830;</span></div>
+    <p class="section-subtitle reveal">Reach out to discuss your fabric requirements.</p>
+    <div class="contact-grid stagger-children">
+      <div class="contact-card reveal">
         <h3>Mr. M. Kamaraj</h3>
         <span class="role">Managing Director</span>
         <div class="contact-info">
@@ -355,7 +501,7 @@ footer .tagline{font-family:'Playfair Display',serif;color:var(--gold);font-size
           <a href="tel:+919362244660">&#9742;&nbsp; +91 93622 44660</a>
         </div>
       </div>
-      <div class="contact-card">
+      <div class="contact-card reveal">
         <h3>Mr. K. Hariprasad</h3>
         <span class="role">Executive Manager</span>
         <div class="contact-info">
@@ -364,7 +510,7 @@ footer .tagline{font-family:'Playfair Display',serif;color:var(--gold);font-size
         </div>
       </div>
     </div>
-    <div class="address-block">
+    <div class="address-block reveal">
       <h4>Corporate Office</h4>
       <p>35/24, Kanagasabapathi Street,<br>Ammapet, Salem – 636003<br>Tamil Nadu, India</p>
     </div>
@@ -377,23 +523,103 @@ footer .tagline{font-family:'Playfair Display',serif;color:var(--gold);font-size
   <p>&copy; 2025 Hari Tex. All rights reserved.</p>
 </footer>
 
+<!-- WHATSAPP FLOATING BUTTON -->
+<a href="https://wa.me/919362244660?text=Hello%20Hari%20Tex%2C%20I%27m%20interested%20in%20your%20woven%20fabrics." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <span class="whatsapp-tooltip">Chat with us</span>
+  <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16.004 0h-.008C7.174 0 0 7.176 0 16c0 3.5 1.128 6.744 3.046 9.378L1.054 31.29l6.118-1.958A15.9 15.9 0 0016.004 32C24.826 32 32 24.822 32 16S24.826 0 16.004 0zm9.342 22.616c-.39 1.1-2.282 2.104-3.156 2.168-.874.064-1.688.396-5.69-1.184-4.816-1.902-7.874-6.86-8.112-7.18-.236-.318-1.938-2.576-1.938-4.916 0-2.338 1.228-3.49 1.664-3.968.436-.478.952-.598 1.27-.598.316 0 .634.002.91.016.294.016.686-.112 1.074.818.39.936 1.326 3.236 1.444 3.472.116.236.194.512.04.828-.158.318-.236.514-.472.794-.236.278-.498.622-.71.834-.236.236-.482.492-.208.966.276.472 1.226 2.022 2.632 3.274 1.81 1.612 3.336 2.112 3.81 2.35.476.236.754.198 1.03-.12.276-.316 1.186-1.384 1.502-1.862.316-.478.634-.396 1.07-.236.436.158 2.77 1.306 3.246 1.544.476.236.794.356.91.554.118.198.118 1.148-.272 2.246z"/></svg>
+</a>
+
 <script>
-// Navbar scroll effect
+// Navbar scroll
 window.addEventListener('scroll',()=>{
-  document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50)
+  document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50);
 });
-// Close mobile menu on link click
+
+// Mobile menu close on link click
 document.querySelectorAll('.nav-links a').forEach(a=>{
-  a.addEventListener('click',()=>document.body.classList.remove('mobile-open'))
+  a.addEventListener('click',()=>document.body.classList.remove('mobile-open'));
 });
-// Scroll reveal animation
-const observer=new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)'}})
-},{threshold:0.1});
-document.querySelectorAll('.infra-card,.step,.product-tag,.why-card,.contact-card,.stat-card').forEach(el=>{
-  el.style.opacity='0';el.style.transform='translateY(20px)';el.style.transition='all .5s ease';
-  observer.observe(el);
+
+// Scroll reveal with stagger
+const revealObserver=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('visible');
+    }
+  });
+},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+
+document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el=>revealObserver.observe(el));
+
+// Counter animation
+function formatIndian(n){
+  const s=n.toString();
+  if(s.length<=3)return s;
+  let last3=s.slice(-3);
+  let rest=s.slice(0,-3);
+  let formatted='';
+  while(rest.length>2){formatted=','+rest.slice(-2)+formatted;rest=rest.slice(0,-2)}
+  if(rest.length)formatted=rest+formatted;
+  return formatted+','+last3;
+}
+
+function animateCounter(el){
+  const target=parseInt(el.dataset.target);
+  const suffix=el.dataset.suffix||'';
+  const isIndian=el.dataset.format==='indian';
+  const duration=2000;
+  const start=performance.now();
+
+  function update(now){
+    const elapsed=now-start;
+    const progress=Math.min(elapsed/duration,1);
+    const eased=1-Math.pow(1-progress,3); // ease out cubic
+    const current=Math.round(eased*target);
+    el.textContent=(isIndian?formatIndian(current):current)+suffix;
+    if(progress<1)requestAnimationFrame(update);
+  }
+  requestAnimationFrame(update);
+}
+
+const counterObserver=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting&&!e.target.dataset.counted){
+      e.target.dataset.counted='true';
+      animateCounter(e.target);
+    }
+  });
+},{threshold:0.5});
+
+document.querySelectorAll('.stat-card .number').forEach(el=>counterObserver.observe(el));
+
+// Active nav highlight on scroll
+const sections=document.querySelectorAll('section[id]');
+const navLinks=document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll',()=>{
+  let current='';
+  sections.forEach(s=>{
+    if(window.scrollY>=s.offsetTop-200)current=s.id;
+  });
+  navLinks.forEach(a=>{
+    a.style.color=a.getAttribute('href')==='#'+current?'var(--gold)':'';
+    a.style.setProperty('--after-width',a.getAttribute('href')==='#'+current?'100%':'0');
+  });
 });
+
+// Auto-fit stat numbers to card width
+function fitStatNumbers(){
+  document.querySelectorAll('.stat-card .number').forEach(el=>{
+    const card=el.closest('.stat-card');
+    const maxW=card.clientWidth-24;
+    let size=parseFloat(getComputedStyle(el).fontSize);
+    while(el.scrollWidth>maxW&&size>12){
+      size-=1;
+      el.style.fontSize=size+'px';
+    }
+  });
+}
+window.addEventListener('load',()=>setTimeout(fitStatNumbers,2200));
+window.addEventListener('resize',fitStatNumbers);
 </script>
 </body>
 </html>
