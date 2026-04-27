@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hari Tex – Premium Woven Fabrics | Salem, India</title>
+<meta name="description" content="Hari Tex is a trusted manufacturer of premium woven fabrics from Salem, Tamil Nadu, India. 15+ years of expertise, 1,00,000+ meters/month capacity.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --navy:#1a2744;--navy-light:#243352;--gold:#c9a84c;--gold-light:#dfc06a;
+  --cream:#faf8f4;--white:#ffffff;--gray:#6b7280;--gray-light:#e5e7eb;
+  --text:#1f2937;--text-light:#4b5563;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:var(--text);background:var(--cream);line-height:1.7}
+h1,h2,h3,h4{font-family:'Playfair Display',serif;font-weight:600;line-height:1.3}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1rem 2rem;transition:all .4s}
+nav.scrolled{background:var(--navy);box-shadow:0 2px 20px rgba(0,0,0,.15)}
+.nav-inner{max-width:1200px;margin:auto;display:flex;justify-content:space-between;align-items:center}
+.logo{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:var(--white);text-decoration:none}
+.logo span{color:var(--gold)}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{color:rgba(255,255,255,.85);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .3s;letter-spacing:.5px}
+.nav-links a:hover{color:var(--gold)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.hamburger span{width:24px;height:2px;background:var(--white);transition:all .3s}
+.mobile-open .hamburger span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.mobile-open .hamburger span:nth-child(2){opacity:0}
+.mobile-open .hamburger span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+
+/* HERO */
+.hero{min-height:100vh;background:linear-gradient(135deg,var(--navy) 0%,#0f1a2e 100%);display:flex;align-items:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0 L60 30 L30 60 L0 30Z' fill='none' stroke='rgba(201,168,76,0.06)' stroke-width='1'/%3E%3C/svg%3E")}
+.hero-content{max-width:1200px;margin:auto;padding:8rem 2rem 4rem;position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.hero-text h1{font-size:3.5rem;color:var(--white);margin-bottom:1.5rem}
+.hero-text h1 span{color:var(--gold);display:block}
+.hero-text p{color:rgba(255,255,255,.7);font-size:1.1rem;margin-bottom:2rem;max-width:500px}
+.hero-cta{display:inline-flex;gap:1rem;flex-wrap:wrap}
+.btn{padding:.85rem 2rem;border-radius:4px;font-weight:600;font-size:.9rem;text-decoration:none;transition:all .3s;letter-spacing:.5px;cursor:pointer;border:none}
+.btn-gold{background:var(--gold);color:var(--navy)}
+.btn-gold:hover{background:var(--gold-light);transform:translateY(-2px)}
+.btn-outline{border:2px solid rgba(255,255,255,.3);color:var(--white);background:transparent}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+.hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+.stat-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:2rem;text-align:center;backdrop-filter:blur(10px)}
+.stat-card .number{font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:700;color:var(--gold);display:block}
+.stat-card .label{color:rgba(255,255,255,.6);font-size:.85rem;margin-top:.5rem;display:block}
+
+/* SECTIONS */
+section{padding:6rem 2rem}
+.section-inner{max-width:1100px;margin:auto}
+.section-label{text-transform:uppercase;letter-spacing:3px;font-size:.75rem;font-weight:600;color:var(--gold);margin-bottom:.75rem}
+.section-title{font-size:2.4rem;color:var(--navy);margin-bottom:1rem}
+.section-subtitle{color:var(--text-light);font-size:1.05rem;max-width:600px;margin-bottom:3rem}
+
+/* ABOUT */
+.about{background:var(--white)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.about-text p{color:var(--text-light);margin-bottom:1.5rem}
+.about-visual{position:relative}
+.about-card{background:linear-gradient(135deg,var(--navy),var(--navy-light));border-radius:16px;padding:3rem;color:var(--white)}
+.about-card .timeline{display:flex;flex-direction:column;gap:1.5rem}
+.timeline-item{display:flex;gap:1rem;align-items:flex-start}
+.timeline-dot{width:12px;height:12px;border-radius:50%;background:var(--gold);margin-top:6px;flex-shrink:0}
+.timeline-content .year{font-weight:600;color:var(--gold);font-size:.85rem}
+.timeline-content .desc{color:rgba(255,255,255,.7);font-size:.9rem}
+
+/* INFRASTRUCTURE */
+.infra{background:var(--cream)}
+.infra-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.infra-card{background:var(--white);border-radius:12px;padding:2rem;border:1px solid var(--gray-light);transition:all .3s}
+.infra-card:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(0,0,0,.08);border-color:var(--gold)}
+.infra-icon{width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,var(--navy),var(--navy-light));display:flex;align-items:center;justify-content:center;margin-bottom:1rem;font-size:1.3rem;color:var(--gold)}
+.infra-card h4{font-size:1.05rem;color:var(--navy);margin-bottom:.5rem}
+.infra-card p{color:var(--text-light);font-size:.9rem}
+
+/* WORKFLOW */
+.workflow{background:var(--navy);color:var(--white)}
+.workflow .section-title{color:var(--white)}
+.workflow .section-subtitle{color:rgba(255,255,255,.6)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+.step{position:relative;padding:2rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;transition:all .3s}
+.step:hover{background:rgba(255,255,255,.08);border-color:var(--gold)}
+.step-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--gold);opacity:.5;margin-bottom:.5rem}
+.step h4{font-size:1rem;margin-bottom:.5rem}
+.step p{color:rgba(255,255,255,.5);font-size:.85rem}
+
+/* PRODUCTS */
+.products{background:var(--white)}
+.product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.product-tag{background:var(--cream);border:1px solid var(--gray-light);border-radius:8px;padding:1rem 1.25rem;font-size:.9rem;font-weight:500;color:var(--navy);transition:all .3s;text-align:center}
+.product-tag:hover{border-color:var(--gold);background:var(--white);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.06)}
+
+/* WHY US */
+.why{background:var(--cream)}
+.why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
+.why-card{display:flex;gap:1rem;align-items:flex-start;padding:1.5rem;background:var(--white);border-radius:10px;border:1px solid var(--gray-light)}
+.why-check{width:28px;height:28px;border-radius:50%;background:var(--gold);color:var(--navy);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.8rem;flex-shrink:0;margin-top:2px}
+.why-card h4{font-size:.95rem;color:var(--navy);margin-bottom:.25rem}
+.why-card p{font-size:.85rem;color:var(--text-light)}
+
+/* CONTACT */
+.contact{background:var(--navy);color:var(--white)}
+.contact .section-title{color:var(--white)}
+.contact .section-subtitle{color:rgba(255,255,255,.6)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+.contact-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:2.5rem}
+.contact-card h3{font-size:1.2rem;margin-bottom:.25rem}
+.contact-card .role{color:var(--gold);font-size:.85rem;margin-bottom:1.5rem;display:block}
+.contact-info{display:flex;flex-direction:column;gap:.75rem}
+.contact-info a{color:rgba(255,255,255,.7);text-decoration:none;font-size:.9rem;display:flex;align-items:center;gap:.75rem;transition:color .3s}
+.contact-info a:hover{color:var(--gold)}
+.address-block{margin-top:3rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,.1)}
+.address-block h4{color:var(--gold);font-size:.9rem;margin-bottom:.75rem;text-transform:uppercase;letter-spacing:2px}
+.address-block p{color:rgba(255,255,255,.6);font-size:.9rem;line-height:1.8}
+
+/* FOOTER */
+footer{background:#0f1a2e;padding:2rem;text-align:center}
+footer p{color:rgba(255,255,255,.4);font-size:.8rem}
+footer .tagline{font-family:'Playfair Display',serif;color:var(--gold);font-size:1rem;margin-bottom:.5rem;font-style:italic}
+
+/* MOBILE */
+@media(max-width:768px){
+  .hamburger{display:flex}
+  .nav-links{position:fixed;top:0;left:0;right:0;bottom:0;background:var(--navy);flex-direction:column;align-items:center;justify-content:center;gap:2rem;transform:translateX(100%);transition:transform .4s}
+  .mobile-open .nav-links{transform:translateX(0)}
+  .hero-content{grid-template-columns:1fr;padding:7rem 1.5rem 3rem;gap:2.5rem}
+  .hero-text h1{font-size:2.4rem}
+  .hero-stats{grid-template-columns:1fr 1fr}
+  .about-grid{grid-template-columns:1fr}
+  .infra-grid{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr}
+  .product-grid{grid-template-columns:repeat(2,1fr)}
+  .why-grid{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+  .section-title{font-size:1.8rem}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="logo">Hari<span>Tex</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#infrastructure">Infrastructure</a></li>
+      <li><a href="#workflow">Process</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#why">Why Us</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="hamburger" onclick="document.body.classList.toggle('mobile-open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-text">
+      <h1>Premium Woven Fabrics <span>Crafted in India</span></h1>
+      <p>Trusted manufacturer combining traditional textile craftsmanship with modern weaving technology. Delivering consistent, scalable, and reliable fabric solutions for global buyers.</p>
+      <div class="hero-cta">
+        <a href="#contact" class="btn btn-gold">Get in Touch</a>
+        <a href="#products" class="btn btn-outline">Our Fabrics</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-card"><span class="number">15+</span><span class="label">Years of Experience</span></div>
+      <div class="stat-card"><span class="number">200</span><span class="label">Power, Rapier &amp; Air-Jet Looms</span></div>
+      <div class="stat-card"><span class="number">1L+</span><span class="label">Meters / Month Capacity</span></div>
+      <div class="stat-card"><span class="number">6+5</span><span class="label">Dyeing &amp; Processing Units</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-text">
+        <div class="section-label">Our Story</div>
+        <h2 class="section-title">Built on Trust, Driven by Quality</h2>
+        <p>Founded in 2009 as Hari Fashions, the company evolved into <strong>Hari Tex</strong> in 2022, strengthening its identity as a quality-driven woven fabric manufacturer headquartered in Salem, Tamil Nadu.</p>
+        <p>Over the years, Hari Tex has earned a solid reputation for product integrity, execution reliability, and buyer trust. We combine traditional textile craftsmanship with modern weaving technology to serve global markets.</p>
+      </div>
+      <div class="about-visual">
+        <div class="about-card">
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content"><div class="year">2009</div><div class="desc">Founded as Hari Fashions in Salem, Tamil Nadu</div></div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content"><div class="year">2009–2022</div><div class="desc">Grew expertise in woven fabrics, expanded capacity &amp; buyer network</div></div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content"><div class="year">2022</div><div class="desc">Rebranded as Hari Tex — strengthened identity as quality-driven manufacturer</div></div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content"><div class="year">Today</div><div class="desc">1,00,000+ meters/month capacity with 200 looms &amp; 11 processing facilities</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INFRASTRUCTURE -->
+<section class="infra" id="infrastructure">
+  <div class="section-inner">
+    <div class="section-label">Expertise &amp; Infrastructure</div>
+    <h2 class="section-title">Built for Volume, Flexibility &amp; Consistency</h2>
+    <p class="section-subtitle">Hari Tex balances innovation with craftsmanship, operating through strong contract-based infrastructure.</p>
+    <div class="infra-grid">
+      <div class="infra-card">
+        <div class="infra-icon">&#9881;</div>
+        <h4>200 Advanced Looms</h4>
+        <p>Power, Rapier &amp; Air-Jet looms for diverse weaving requirements</p>
+      </div>
+      <div class="infra-card">
+        <div class="infra-icon">&#9874;</div>
+        <h4>Custom Engineering</h4>
+        <p>Woven fabrics custom-engineered as per exact buyer specifications</p>
+      </div>
+      <div class="infra-card">
+        <div class="infra-icon">&#10026;</div>
+        <h4>Premium Yarn Sourcing</h4>
+        <p>Sourced from reputed suppliers ensuring consistent fibre quality</p>
+      </div>
+      <div class="infra-card">
+        <div class="infra-icon">&#9752;</div>
+        <h4>6 Dyeing Units</h4>
+        <p>Specialized facilities ensuring shade accuracy across bulk production</p>
+      </div>
+      <div class="infra-card">
+        <div class="infra-icon">&#9878;</div>
+        <h4>5 Processing Facilities</h4>
+        <p>Complete finishing solutions from shrinkage control to softening</p>
+      </div>
+      <div class="infra-card">
+        <div class="infra-icon">&#9650;</div>
+        <h4>Scalable Capacity</h4>
+        <p>1,00,000+ meters/month — built to scale with your demand</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORKFLOW -->
+<section class="workflow" id="workflow">
+  <div class="section-inner">
+    <div class="section-label">Our Process</div>
+    <h2 class="section-title">Structured Workflow, Uncompromised Quality</h2>
+    <p class="section-subtitle">Multi-stage quality checks enforced across every production phase for global compliance.</p>
+    <div class="steps">
+      <div class="step"><div class="step-num">01</div><h4>Yarn Procurement</h4><p>Sourced as per buyer requirements from trusted suppliers</p></div>
+      <div class="step"><div class="step-num">02</div><h4>Controlled Dyeing</h4><p>Precision dyeing for shade accuracy and colorfastness</p></div>
+      <div class="step"><div class="step-num">03</div><h4>Warping &amp; Weaving</h4><p>Executed on advanced Power, Rapier &amp; Air-Jet looms</p></div>
+      <div class="step"><div class="step-num">04</div><h4>Processing &amp; Finishing</h4><p>Complete finishing solutions across 5 specialized facilities</p></div>
+      <div class="step"><div class="step-num">05</div><h4>4-Point Inspection</h4><p>Industry-standard quality inspection system for defect analysis</p></div>
+      <div class="step"><div class="step-num">06</div><h4>On-Time Dispatch</h4><p>Reliable logistics ensuring your fabric arrives on schedule</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products" id="products">
+  <div class="section-inner">
+    <div class="section-label">Product Range</div>
+    <h2 class="section-title">Extensive Woven Fabric Collection</h2>
+    <p class="section-subtitle">Custom developments available on request.</p>
+    <div class="product-grid">
+      <div class="product-tag">Polyester &amp; Blends</div>
+      <div class="product-tag">Cotton &amp; Blends</div>
+      <div class="product-tag">Viscose &amp; Blends</div>
+      <div class="product-tag">Linen &amp; Blends</div>
+      <div class="product-tag">Spandex</div>
+      <div class="product-tag">Fancy Yarns</div>
+      <div class="product-tag">Melanges</div>
+      <div class="product-tag">Grindles</div>
+      <div class="product-tag">Double Gauze</div>
+      <div class="product-tag">Flannels</div>
+      <div class="product-tag">Voiles</div>
+      <div class="product-tag">Slubs</div>
+      <div class="product-tag">Patchwork Fabrics</div>
+      <div class="product-tag">Indigo Fabrics</div>
+      <div class="product-tag">Chambray</div>
+      <div class="product-tag">Denim Checks</div>
+      <div class="product-tag">Stripes</div>
+      <div class="product-tag">Custom Development</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why" id="why">
+  <div class="section-inner">
+    <div class="section-label">Why Hari Tex</div>
+    <h2 class="section-title">We Don't Overpromise. We Deliver.</h2>
+    <p class="section-subtitle"></p>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-check">&#10003;</div>
+        <div><h4>Customization</h4><p>Fabrics engineered to exact buyer specifications — yarn, weave, finish, everything tailored.</p></div>
+      </div>
+      <div class="why-card">
+        <div class="why-check">&#10003;</div>
+        <div><h4>Quality Assurance</h4><p>Strict multi-stage inspections including 4-Point System at every production phase.</p></div>
+      </div>
+      <div class="why-card">
+        <div class="why-check">&#10003;</div>
+        <div><h4>On-Time Delivery</h4><p>Structured workflow and reliable logistics ensure your fabric arrives on schedule.</p></div>
+      </div>
+      <div class="why-card">
+        <div class="why-check">&#10003;</div>
+        <div><h4>Scalable Production</h4><p>1,00,000+ meters/month with 200 looms — built to grow with your demand.</p></div>
+      </div>
+      <div class="why-card">
+        <div class="why-check">&#10003;</div>
+        <div><h4>Sustainable Practices</h4><p>Commitment to responsible manufacturing and environmentally conscious production.</p></div>
+      </div>
+      <div class="why-card">
+        <div class="why-check">&#10003;</div>
+        <div><h4>15+ Years Trust</h4><p>A proven track record of product integrity, execution reliability, and buyer satisfaction.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="section-inner">
+    <div class="section-label">Get in Touch</div>
+    <h2 class="section-title">Let's Work Together</h2>
+    <p class="section-subtitle">Reach out to discuss your fabric requirements.</p>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <h3>Mr. M. Kamaraj</h3>
+        <span class="role">Managing Director</span>
+        <div class="contact-info">
+          <a href="mailto:haritexwoven@gmail.com">&#9993;&nbsp; haritexwoven@gmail.com</a>
+          <a href="tel:+919362244660">&#9742;&nbsp; +91 93622 44660</a>
+        </div>
+      </div>
+      <div class="contact-card">
+        <h3>Mr. K. Hariprasad</h3>
+        <span class="role">Executive Manager</span>
+        <div class="contact-info">
+          <a href="mailto:hariprasad@haritex.net">&#9993;&nbsp; hariprasad@haritex.net</a>
+          <a href="tel:+919629812599">&#9742;&nbsp; +91 96298 12599</a>
+        </div>
+      </div>
+    </div>
+    <div class="address-block">
+      <h4>Corporate Office</h4>
+      <p>35/24, Kanagasabapathi Street,<br>Ammapet, Salem – 636003<br>Tamil Nadu, India</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p class="tagline">"Threaded with perfection. Woven with passion."</p>
+  <p>&copy; 2025 Hari Tex. All rights reserved.</p>
+</footer>
+
+<script>
+// Navbar scroll effect
+window.addEventListener('scroll',()=>{
+  document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50)
+});
+// Close mobile menu on link click
+document.querySelectorAll('.nav-links a').forEach(a=>{
+  a.addEventListener('click',()=>document.body.classList.remove('mobile-open'))
+});
+// Scroll reveal animation
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)'}})
+},{threshold:0.1});
+document.querySelectorAll('.infra-card,.step,.product-tag,.why-card,.contact-card,.stat-card').forEach(el=>{
+  el.style.opacity='0';el.style.transform='translateY(20px)';el.style.transition='all .5s ease';
+  observer.observe(el);
+});
+</script>
+</body>
+</html>
